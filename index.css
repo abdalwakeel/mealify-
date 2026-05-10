@@ -1,0 +1,452 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background-color: E3B04B;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* NAVBAR */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(214, 90, 49, 0.9);
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.nav-item a:hover {
+  background-color: E3B04B;
+  padding: 20%;
+  border-radius: 20px;
+}
+
+.navbar i {
+  font-size: 25px;
+}
+.navbar i:hover {
+  background-color: E3B04B;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+.nav-item ul {
+  display: flex;
+  gap: 30px;
+  padding: 5px 15px;
+}
+.navbar a {
+  font-family: "Frijole", system-ui;
+  font-size: 50px;
+  font-weight: 700px;
+  color: E3B04B;
+}
+
+.nav-item a {
+  color: black;
+  font-size: 17px;
+  font-weight: 500px;
+}
+
+/* HOME */
+
+.home {
+  background-color: E3B04B;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-items: center;
+  box-sizing: border-box;
+}
+.home-item {
+  width: 50%;
+}
+
+.home-item img {
+  width: 85%;
+  display: block;
+  transition: transform 5s ease-in-out;
+}
+
+.home-item img:hover {
+  transform: rotate(360deg);
+}
+
+.home-item h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 75px;
+  font-weight: 700px;
+  padding-left: 20%;
+}
+.home-item p {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 18px;
+  font-weight: 400px;
+  color: #3e3636;
+}
+
+.button-home {
+  display: flex;
+  padding-left: 30%;
+  gap: 50px;
+}
+.button-home button {
+  font-size: medium;
+  font-weight: bold;
+  padding: 30px 15px;
+  background-color: orangered;
+  border-radius: 50%;
+}
+
+.button-home button:hover {
+  cursor: pointer;
+  background-color: gold;
+  border-style: double;
+}
+
+/* CHEFS */
+
+.chefs {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 50px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.chefs img {
+  width: 100%;
+  border-radius: 10%;
+  border-style: groove;
+}
+
+h4 {
+  font-family: "Frijole", system-ui;
+  font-size: 18px;
+  font-weight: 400px;
+  text-align: center;
+  color: brown;
+}
+
+p {
+  font-family: "Frijole", system-ui;
+  font-size: 30px;
+  font-weight: 400px;
+  color: RGB(33, 37, 41);
+  text-align: center;
+}
+
+.chef {
+  display: flex;
+}
+
+.ch h3 {
+  color: orangered;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+.chef p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 400px;
+  color: brown;
+}
+/* gallary */
+
+.gallary h1 {
+  font-family: "Frijole", system-ui;
+  font-size: 50px;
+  font-weight: 400px;
+  color: RGB(33, 37, 41);
+  text-align: center;
+}
+.gallary h3 {
+  text-align: center;
+  color: brown;
+  font-family: "Frijole", system-ui;
+  font-size: 18px;
+  font-weight: 500px;
+}
+
+.gallary {
+  background-color: E3B04B;
+}
+
+.photo {
+  padding: 20px;
+  gap: 20px;
+  transition: 1s;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photo-item {
+  display: flex;
+  flex: 0 0 calc(25% - 20px);
+  overflow: hidden;
+  border-radius: 10px;
+  height: 300px;
+  position: relative;
+  transition: 2s;
+}
+
+.photo-item h2,
+.photo-item p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* خلفية سوداء شفافة */
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 15px;
+
+  /* الحركة: البداية هيكونوا مخفيين وتحت حدود الكارت */
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.photo-item h2 {
+  bottom: -100px; /* مكان العنوان في البداية (مخفي تحت) */
+  z-index: 2;
+}
+
+.photo-item p {
+  bottom: -150px; /* مكان البراجراف في البداية */
+  z-index: 1;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+/* --- تأثير الهوفر --- */
+
+/* 1. إظهار الكلام ورفعه للأعلى */
+.photo-item:hover h2 {
+  opacity: 1;
+  bottom: 60px; /* يرتفع لمكانه */
+}
+
+.photo-item:hover p {
+  opacity: 1;
+  bottom: 0; /* يرتفع لمكانه في الأسفل */
+}
+
+/* 2. تكبير الصورة بسيط أو دوران خفيف */
+.photo-item:hover img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* للموبايل: نخلي الصور 2 في الصف أو 1 */
+@media (max-width: 992px) {
+  .photo-item {
+    flex: 0 0 calc(50% - 20px); /* صورتين في الصف */
+  }
+}
+
+@media (max-width: 600px) {
+  .photo-item {
+    flex: 0 0 100%; /* صورة واحدة في الصف */
+  }
+}
+
+/* CONTACT */
+.contact {
+  background-color: E3B04B;
+}
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.contact iframe {
+  width: 50%;
+  border-radius: 4%;
+  padding: auto;
+  height: auto;
+}
+
+.conter {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+#contact-title p {
+  font-family: "Frijole", system-ui;
+  font-size: 40px;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  border-style: groove;
+  border-color: brown;
+  border-radius: 30px;
+  padding-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.contact p {
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: black;
+  margin-bottom: 30px;
+}
+
+.contact h2 {
+  text-align: center;
+  color: brown;
+  font-family: "Frijole", system-ui;
+  font-size: 18px;
+  font-weight: 500px;
+  text-transform: uppercase;
+}
+
+/* الموبايل */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column; /* يرجعوا تحت بعض في الشاشات الصغيرة */
+  }
+  .contact-section iframe,
+  .conter {
+    flex: 0 0 100%;
+  }
+}
+
+.form-title h2 {
+  padding-top: 50px;
+  text-align: center;
+  color: brown;
+  font-family: "Frijole", system-ui;
+  font-size: 18px;
+  font-weight: 500px;
+  text-transform: uppercase;
+}
+
+input {
+  padding: 10px;
+  flex: 1;
+  border-radius: 10px;
+ width: 30%;
+  margin: 20px;
+  background-color:rgb(229, 198, 156);
+}
+ 
+#sub{
+    width: 60%;
+    height: 30%;
+}
+
+.form-button{
+    padding-left: 47%;
+}
+
+.form-button button {
+  width: 200px;
+  height: 50px;
+  background-color:rgba(190, 11, 11, 0.623);
+  border-radius: 15px;
+  font-size: 16px;
+  font-family:"Frijole", system-ui ;
+  color: white;
+ 
+ 
+}
+
+.form-button button:hover{
+    background-color: rgb(88, 31, 31);
+}
+
+/* FOOTER */
+
+
+.simple-footer {
+    background-color: rgb(226, 120, 81); /* البني الداكن اللي استخدمناه للنصوص */
+    color: #ffffff;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* توزيع المحتوى والروابط جنب بعض */
+    align-items: center;
+    flex-wrap: wrap; /* عشان في الموبايل ينزلوا تحت بعض */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+  color: red;
+}
+
+.footer-content p span {
+    color: #E3B04B; /* اللون الذهبي لاسم الموقع */
+    font-weight: bold;
+   
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #baccd8;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffffff; /* يفتح اللون عند الوقوف عليه */
+}
+
+/* للموبايل */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
